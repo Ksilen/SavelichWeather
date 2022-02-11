@@ -11,6 +11,7 @@ class WidgetForApiKey : public QWidget {
     Q_OBJECT
 public:
     WidgetForApiKey();
+    virtual ~WidgetForApiKey();
     QPushButton* keyOk;
     QLineEdit* lineForKey;
 

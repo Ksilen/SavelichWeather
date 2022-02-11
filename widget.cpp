@@ -27,11 +27,11 @@ void Widget::generalConnects()
     connect(this, SIGNAL(customContextMenuRequested(QPoint)),
         this, SLOT(showContextMenu(QPoint)));
     if (!QFile::exists("weather")) {
-        connect(&db, &DataBase::iHaveNotInternet, this, &this->ifDbHasNotInternet);
+        connect(&db, SIGNAL(iHaveNotInternet()),
+            SLOT(ifDbHasNotInternet()));
     }
-    connect(&db.netR, &NetRequest::apiKeyNotValid, [=]() {
-        ifApiKeyNotValid(); //если не верно введен APIkey c OpenWeather
-    });
+    connect(&db, SIGNAL(apiKeyNotValidB()),
+        this, SLOT(ifApiKeyNotValid())); //если не верно введен APIkey c OpenWeather
     db.getApiKeyFromBd(); //Взять APIkey из БД и присвоить QString apiKey
 }
 

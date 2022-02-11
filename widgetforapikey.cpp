@@ -51,3 +51,7 @@ void WidgetForApiKey::closeEvent(QCloseEvent* event)
     emit iAmClosing();
     event->accept();
 }
+
+WidgetForApiKey::~WidgetForApiKey()
+{
+}

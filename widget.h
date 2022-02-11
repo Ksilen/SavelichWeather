@@ -39,18 +39,18 @@ public slots:
 
 private:
     Ui::Widget* ui;
-    QSystemTrayIcon* trayIcon;
-    bool lineEditEnable = false;
-    bool isWindowForKey = false; //создавался ли объект WidgetForApiKey
-    int MouseX;
-    int MouseY;
     void mousePressEvent(QMouseEvent* event);
     void mouseMoveEvent(QMouseEvent* event);
     void setImages();
     void runWithSize();
     void generalConnects();
     void iconInTray();
+    bool lineEditEnable = false;
+    bool isWindowForKey = false; //создавался ли объект WidgetForApiKey
+    int MouseX;
+    int MouseY;
     DataBase db;
+    QSystemTrayIcon* trayIcon;
     QLineEdit* lineCiti;
     QSqlQueryModel queryWeatherModel;
     QSqlQueryModel cityNameForWidget;

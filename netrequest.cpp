@@ -27,3 +27,7 @@ void NetRequest::answerAPI(QString ForRequest)
     request.setUrl(QUrl::fromUserInput(ForRequest));
     manage->get(request);
 }
+
+NetRequest::~NetRequest()
+{
+}

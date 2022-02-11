@@ -7,6 +7,7 @@
 #include <QJsonObject>
 #include <QJsonValue>
 #include <QNetworkAccessManager>
+#include <QNetworkConfigurationManager>
 #include <QNetworkReply>
 #include <QNetworkRequest>
 #include <QObject>
@@ -16,19 +17,21 @@ class NetRequest : public QObject {
     Q_OBJECT
 public:
     NetRequest();
-    QJsonDocument jDoc;
+    virtual ~NetRequest();
     void answerAPI(QString ForRequest);
-
+    QJsonDocument jDoc;
+    QNetworkConfigurationManager netManage;
+    QList<QNetworkConfiguration> activeConfigs;
+    QNetworkAccessManager* manage = new QNetworkAccessManager;
 public slots:
     void managerFinished(QNetworkReply* reply);
 
 signals:
     void replyDone();
     void replyNotDone();
-    void apiKeyNotValid();//когда API Key не верен
+    void apiKeyNotValid(); //когда API Key не верен
 
 private:
-    QNetworkAccessManager* manage = new QNetworkAccessManager;
     QNetworkRequest request;
 };
 

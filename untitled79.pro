@@ -18,7 +18,6 @@ SOURCES += main.cpp\
         widget.cpp \
     netrequest.cpp \
     database.cpp \
-    database2.cpp \
     widgetforapikey.cpp
 
 HEADERS  += widget.h \
