@@ -1,1 +1,1 @@
-# SavelichWeather
+# WeatherWidget
